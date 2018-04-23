@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- 定义页面显示的编码格式 -->
+    <meta charset="utf-8">
+    <script th:src="@{../js/jquery-3.1.1.min.js}"></script>
+
+    <script>
+
+    </script>
+</head>
+<body>
+
+<div id="show_alert" style="position: absolute;top: 50%;left: 40%;padding: 20px;border: 1px solid;display: none;">
+    <form action="/addUser" method="post">
+        <span>姓   名:</span><input style="margin-left: 20px;" type="text" placeholder="姓名" name="name"
+                                  th:value="*{name}"/></br>
+        <span>登录名:</span><input style="margin-left: 12px;" type="text" placeholder="登录名" name="loginname"
+                                th:value="*{loginname}"/></br>
+        <span>密   码:</span><input style="margin-left: 20px;" type="password" placeholder="密码" name="password"
+                                  th:value="*{password}"/></br>
+        <input type="submit" value="提交"/> <input style="margin-left:30px" type="button" value="取消"
+                                                 onclick="$(this).parent().parent().hide()"/>
+    </form>
+</div>
+
+<div>
+    <form action="/getStudent" method="post">
+        <input type="text" placeholder="登录名"  name="loginname" th:value="*{loginname}"/>
+        <input type="submit" value="搜素"/>
+    </form>
+</div>
+<div>
+    <!--<a href="add.html" th:href="@{/add}">新增</a>-->
+    <!--<button onclick="$('#show_alert').show();">新增</button>-->
+    <button onclick="window.open('/add')">新增</button>
+</div>
+<table border="1">
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>登录名</td>
+        <td>姓名</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+
+    <tr th:if="${userModel.allStudent.size()} eq 0">
+        <td colspan="3">没有对应的列表</td>
+    </tr>
+
+
+    <tbody id="tbody">
+    <tr th:each="user : ${userModel.allStudent}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.loginname}"></td>
+        <td th:text="${user.name}"></td>
+
+        <td><a th:href="@{'/delete/'+${user.id}}">删除</a></td>
+        <td><a th:href="@{'/edit/'+${user.id}}">修改</a></td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>
