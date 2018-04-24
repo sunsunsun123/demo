@@ -3,23 +3,16 @@
 <head>
     <!-- 定义页面显示的编码格式 -->
     <meta charset="utf-8">
-    <script th:src="@{../js/jquery-3.1.1.min.js}"></script>
-
-    <script>
-
-    </script>
 </head>
 <body>
 <div>
     <form action="/getUser" method="post">
         <input type="text" placeholder="登录名"  name="loginname" th:value="*{loginname}"/>
-        <input type="submit" value="搜素"/>
+        <input type="submit" value="搜索"/>
     </form>
 </div>
 <div>
-    <!--<a href="add.html" th:href="@{/add}">新增</a>-->
-    <!--<button onclick="$('#show_alert').show();">新增</button>-->
-    <button onclick="window.open('/add')">新增</button>
+    <a  th:href="@{/add}">新增</a>
 </div>
 <table border="1">
     <thead>

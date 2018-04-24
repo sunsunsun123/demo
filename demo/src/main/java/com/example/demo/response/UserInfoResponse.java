@@ -1,13 +1,21 @@
-package com.example.demo.entity;
+package com.example.demo.response;
 
-public class UserInfo {
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-    private long id;
+@ApiModel("用户返回参数")
+public class UserInfoResponse {
 
+    @ApiModelProperty(value = "用户id",required = true,hidden = false)
+    private Long id;
+
+    @ApiModelProperty(value = "登录名",required = true,hidden = false)
     private String loginname;
 
+    @ApiModelProperty(value = "密码",required = true,hidden = false)
     private String password;
 
+    @ApiModelProperty(value = "用户名",required = true,hidden = false)
     private String name;
 
     public long getId() {
