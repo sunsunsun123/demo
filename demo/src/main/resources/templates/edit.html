@@ -8,11 +8,11 @@
 
 <form action="/editUser" method="post">
 	<span>姓   名:</span><input style="margin-left: 20px;" type="text" placeholder="姓名" name="name"
-							  th:value="*{user.name}"/></br>
+							  th:value="*{userInfo.name}"/></br>
 	<span>登录名:</span><input style="margin-left: 12px;" type="text" placeholder="登录名" name="loginname"
-							th:value="*{user.loginname}"/></br>
+							th:value="*{userInfo.loginname}"/></br>
 	<input style="margin-left: 20px;" type="hidden"  name="id"
-							  th:value="*{user.id}"/></br>
+							  th:value="*{userInfo.id}"/></br>
 	<input type="submit" value="提交"/> <input style="margin-left:30px" type="reset" value="重置"/>
 </form>
 
